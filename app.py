@@ -68,8 +68,6 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        # print(email)
-        # print(password)
         if email == '' or password == '':
             mesage = 'Please enter email and password !'
         else:
@@ -82,7 +80,7 @@ def login():
                 if not bcrypt.check_password_hash(user.password, password):
                     mesage = 'Please enter correct email and password !'
                 else:
-                    session['loggedin'] = True
+                    session['loggedin'] = False
                     session['userid'] = user.id
                     session['name'] = user.name
                     session['email'] = user.email
