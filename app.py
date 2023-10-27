@@ -80,7 +80,7 @@ def login():
                 if not bcrypt.check_password_hash(user.password, password):
                     mesage = 'Please enter correct email and password !'
                 else:
-                    session['loggedin'] = False
+                    session['loggedin'] = True
                     session['userid'] = user.id
                     session['name'] = user.name
                     session['email'] = user.email
